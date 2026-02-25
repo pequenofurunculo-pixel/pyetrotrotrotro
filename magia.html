@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>✨ Transformação Mágica ✨</title>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: 'Quicksand', sans-serif;
+    background: radial-gradient(circle at center, #ffe6f5, #ffc0e6, #ff9ed8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    color: white;
+}
+
+h1 {
+    font-size: 3em;
+    text-shadow: 0 0 20px white;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px white; }
+    to { text-shadow: 0 0 30px #fff0ff; }
+}
+
+img {
+    width: 300px;
+    animation: float 3s infinite ease-in-out;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px) scale(1); }
+    50% { transform: translateY(-20px) scale(1.05); }
+    100% { transform: translateY(0px) scale(1); }
+}
+
+.sparkle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 50%;
+    animation: sparkle 3s linear infinite;
+}
+
+@keyframes sparkle {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-800px); opacity: 0; }
+}
+
+.back {
+    margin-top: 30px;
+    background: white;
+    color: #ff69b4;
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.back:hover {
+    transform: scale(1.1);
+}
+</style>
+</head>
+
+<body>
+
+<h1>🌸 Você virou uma Magical Girl! 🌸</h1>
+
+<img src="madoka.gif" alt="Madoka mágica">
+
+<a class="back" href="index.html">💖 Voltar ao Mundo Kawaii 💖</a>
+
+<audio autoplay loop>
+    <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_c8c8a73467.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+// Criar partículas mágicas
+function criarEstrela() {
+    const estrela = document.createElement("div");
+    estrela.classList.add("sparkle");
+    estrela.style.left = Math.random() * window.innerWidth + "px";
+    estrela.style.top = window.innerHeight + "px";
+    estrela.style.width = estrela.style.height = Math.random() * 8 + 4 + "px";
+    document.body.appendChild(estrela);
+
+    setTimeout(() => {
+        estrela.remove();
+    }, 3000);
+}
+
+setInterval(criarEstrela, 100);
+</script>
+
+</body>
+</html>
